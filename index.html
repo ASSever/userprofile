@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		function C1(){
+			//ссылочная переменная
+			var userData = {firstName: "Sergey", midName: "Ivanov", lastName: "Smirnov"};
+			console.log(userData);
+			console.log(userData.firstName);
+			console.log(userData.midName);
+			console.log(userData.lastName);
+			var userData2 = {firstName: "Sasha", midName: "Petrov", lastName: "Smirnov"};
+			console.log(userData2);
+			console.log(userData2.firstName);
+			console.log(userData2.midName);
+			console.log(userData2.lastName);
+
+			var first = document.getElementById('first').value;
+			var last = document.getElementById('last').value;
+			var mid = document.getElementById('mid').value;
+			var ID=[first,last,mid];
+
+
+			var string = " The quick drown fox quickly jumps over the lazy dog. ";
+			var modif;
+
+			//символы с индексами 0 и 1
+			//string[0]+string[1]
+			console.log(string[0]+string[1]);
+
+			//индекс первого вхождения подстроки или -1, если вхождений нет
+			//string.indexOf("(сама подстрока)")
+			console.log(string.indexOf("quick"));
+			console.log(string.indexOf("Quick"));
+
+			//индекс последнего вхождения
+			//string.lastIndexOf("(сама подстрока)")
+			console.log(string.lastIndexOf("quick"));
+
+			//замена первого вхождения подстроки
+			modif=string.replace("quick","slow");
+			console.log(string);
+			console.log(modif);
+
+			//разбиение по разделителю на массив
+			var splitted = string.split(" ");
+			for (var i = 0; i <= splitted.length; i++) {
+				console.log(splitted[i])
+			}
+
+			//обединение элементов массива в строку
+			//splitted.join("-");
+			console.log(splitted.join("-"));
+
+			//выделение подстроки
+			var start= 17; 
+			var lenght=3;
+			//string.substr(start,lenght);
+			console.log(string.substr(start,lenght));
+
+			//приведение в нижний регистр
+			//string.toLowerCase();
+			console.log(string.toLowerCase());
+			//приведение в верхний регистр
+			//string.toUpperCase();
+			console.log(string.toUpperCase());
+
+		}
+		function C2(){
+			var first = document.getElementById('first').value;
+			var last = document.getElementById('last').value;
+			var mid = document.getElementById('mid').value;
+			var ID=first+" "+last+" "+mid;
+			document.getElementById('all').value=ID;
+			//setTimeout(C2,1000);
+			
+		}
+		function C3(){
+			var userData = {firstName: "Sergey", midName: "Ivanov", lastName: "Smirnov"};
+			//заполняем поля ввода на основе данных обьекта
+			document.getElementById('first').value=userData.firstName;
+			document.getElementById('last').value=userData.lastName;
+			document.getElementById('mid').value=userData.midName;
+			var ID=userData.firstName+" "+userData.lastName+" "+userData.midName;
+			document.getElementById('all').value=ID;
+			//setTimeout(C2,1000);
+		}
+		//вызывает функцию сразу после загрузки страницы
+		document.addEventListener("DOMContentLoaded",C3);
+	</script>
+</head>
+<body>
+Имя:<input id="first" type="text" name="first" onchange="C2();"> 
+Фамилия:<input id="last" type="text" name="last" onchange="C2();"> 
+Oтчество:<input id="mid" type="text" name="mid" onchange="C2();">
+ФИО:<input readonly="true" id="all" type="text" name="all">
+
+</body>
+</html>
